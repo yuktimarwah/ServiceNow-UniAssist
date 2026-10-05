@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Find Your Support Path | UniAssist</title>
+    <link rel="stylesheet" href="../css/style.css">
+</head>
+<body>
+<header class="navbar">
+    <a href="../index.html" class="logo"><span class="logo-icon">✦</span><span>UniAssist</span></a>
+    <div class="nav-right">
+        <span id="welcomeUser" class="nav-text">Student Support</span>
+        <button id="logoutBtn" class="logout-btn">Log out</button>
+    </div>
+</header>
+
+<main class="support-page">
+    <div class="support-container wide">
+
+        <div class="progress-header">
+            <a href="../index.html" class="back-btn">← Home</a>
+            <span class="step-indicator">SUPPORT PATHWAY</span>
+        </div>
+
+        <section class="support-intro">
+            <div class="eyebrow"><span class="status-dot"></span> Tell us in your own words</div>
+            <h1>What do you need help with?</h1>
+            <p>You don't need to know which department to contact. Ask a question or describe what's happening, and we'll turn it into a clear step-by-step support path.</p>
+        </section>
+
+        <section class="ask-card">
+            <label for="question">Your question or concern</label>
+            <textarea id="question" rows="5" placeholder="Example: I'm stressed because of exams, I can't sleep properly and I don't know who to talk to."></textarea>
+
+            <div class="example-row">
+                <button class="example-chip" data-example="I'm overwhelmed with exams and can't concentrate in class.">📚 Academic stress</button>
+                <button class="example-chip" data-example="I'm worried about paying my semester fees.">💰 Financial help</button>
+                <button class="example-chip" data-example="I'm having a serious problem in my hostel.">🏠 Hostel issue</button>
+                <button class="example-chip urgent-chip" data-example="I don't feel safe and I need immediate help.">🚨 Urgent help</button>
+            </div>
+
+            <button id="analyzeBtn" class="primary-btn analyze-btn">Find My Support Path <span>→</span></button>
+            <p class="privacy-note">Prototype mode: the routing engine uses safe predefined support mappings. An LLM can be connected to the same interface later.</p>
+        </section>
+
+        <section id="resultSection" class="result-section hidden">
+            <div class="result-header">
+                <div>
+                    <span class="small-label">YOUR SUPPORT PATH</span>
+                    <h2 id="resultTitle">Here's what we recommend</h2>
+                </div>
+                <span id="priorityBadge" class="priority-badge">MODERATE</span>
+            </div>
+
+            <div id="emergencyBanner" class="emergency-banner hidden">
+                <strong>🚨 Urgent support pathway</strong>
+                <p>Your message may indicate an immediate safety concern. Please contact an appropriate emergency or campus support service now rather than waiting for a normal appointment.</p>
+                <button id="emergencyAction" class="danger-btn">Contact Emergency Support</button>
+            </div>
+
+            <div class="flowchart">
+                <div class="flow-node user-node">
+                    <span class="flow-icon">💬</span>
+                    <div><small>YOU SAID</small><strong id="userSummary"></strong></div>
+                </div>
+                <div class="flow-arrow">↓</div>
+
+                <div class="flow-node">
+                    <span class="flow-icon">🧠</span>
+                    <div><small>WE IDENTIFIED</small><strong id="concerns"></strong></div>
+                </div>
+                <div class="flow-arrow">↓</div>
+
+                <div class="flow-node">
+                    <span class="flow-icon">🧭</span>
+                    <div><small>GO TO</small><strong id="route"></strong></div>
+                </div>
+                <div class="flow-arrow">↓</div>
+
+                <div class="flow-node action-node">
+                    <span class="flow-icon">✅</span>
+                    <div><small>YOUR NEXT STEP</small><strong id="nextStep"></strong></div>
+                </div>
+            </div>
+
+            <div class="recommendation-grid">
+                <div class="reason-card">
+                    <span class="card-label">WHY WE'RE RECOMMENDING THIS</span>
+                    <p id="reason"></p>
+                </div>
+                <div class="support-action-card">
+                    <span class="card-label">SUPPORT OPTIONS</span>
+                    <div id="supportButtons" class="support-buttons"></div>
+                </div>
+            </div>
+
+            <div class="safety-note">
+                <strong>Important:</strong> UniAssist is a navigation and support-routing prototype, not a medical diagnosis tool. Urgent situations should be escalated to trained human or emergency support.
+            </div>
+        </section>
+
+        <section class="quick-help">
+            <div>
+                <span class="small-label">NEED SOMETHING ELSE?</span>
+                <h3>Start with the question in your head.</h3>
+            </div>
+            <p>Academic • wellbeing • finance • hostel • personal • urgent support</p>
+        </section>
+    </div>
+</main>
+
+<script src="../js/script.js"></script>
+</body>
+</html>

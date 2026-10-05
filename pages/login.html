@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sign in | UniAssist</title>
+    <link rel="stylesheet" href="../css/style.css">
+</head>
+<body>
+<header class="navbar">
+    <a href="../index.html" class="logo"><span class="logo-icon">✦</span><span>UniAssist</span></a>
+    <div class="nav-right"><span class="nav-text">Secure student access</span></div>
+</header>
+
+<main class="auth-page">
+    <section class="auth-card">
+        <div class="eyebrow"><span class="status-dot"></span> Student access</div>
+        <h1>Welcome back.</h1>
+        <p class="auth-subtitle">Sign in to continue to your personalised support journey.</p>
+
+        <form id="loginForm" class="auth-form">
+            <label for="studentName">Name</label>
+            <input id="studentName" name="studentName" type="text" placeholder="Your name" required>
+
+            <label for="studentEmail">University email</label>
+            <input id="studentEmail" name="studentEmail" type="email" placeholder="you@university.edu" required>
+
+            <label for="studentPassword">Password</label>
+            <input id="studentPassword" name="studentPassword" type="password" placeholder="••••••••" required>
+
+            <button class="primary-btn auth-btn" type="submit">Continue <span>→</span></button>
+        </form>
+
+        <p class="demo-note">Demo login: any valid name, email and password works.</p>
+        <a class="back-link" href="../index.html">← Back to landing page</a>
+    </section>
+
+    <aside class="auth-side">
+        <span class="small-label">WHAT HAPPENS NEXT</span>
+        <h2>One question can start the whole journey.</h2>
+        <div class="mini-flow">
+            <div><b>1</b><span>Describe your concern</span></div>
+            <div><b>2</b><span>UniAssist finds the right route</span></div>
+            <div><b>3</b><span>Get a clear next action</span></div>
+        </div>
+    </aside>
+</main>
+
+<script>
+document.getElementById("loginForm").addEventListener("submit", function(e) {
+    e.preventDefault();
+    const name = document.getElementById("studentName").value.trim();
+    const email = document.getElementById("studentEmail").value.trim();
+    if (!name || !email) return;
+    localStorage.setItem("uniassistUser", JSON.stringify({ name, email }));
+    window.location.href = "support.html";
+});
+</script>
+</body>
+</html>
